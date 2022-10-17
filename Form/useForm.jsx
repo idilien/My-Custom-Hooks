@@ -1,12 +1,8 @@
 import { useState } from "react"
 
+export const useForm = (init = {}) => {
+    const[formState,setFormState] = useState(init)
 
-
-export const useForm = (initForm = {}) => {
-
-    const[formState,setFormState] = useState(initForm)
-    
-      
       const onInputChange = ({target}) =>{
           const {name, value} = target
           setFormState({
@@ -16,7 +12,7 @@ export const useForm = (initForm = {}) => {
         }
 
         const onResetForm = () =>{
-            setFormState(initForm)
+            setFormState(init)
         }
 
   return {
